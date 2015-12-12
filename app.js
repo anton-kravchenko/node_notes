@@ -33,11 +33,22 @@ init_api(nconf, log, function(error, api){
 		version: package_json['version']
 	});
 
+	server.on('uncaughtException', function (req, res, route, err) {
+        var a_log = req.log ? req.log : log;
+        a_log.error(err);
+        
+        res.send(500, {
+            status: 'server_error',
+            message: err.message
+        });
+    });
+
 	server.use(restify.bodyParser());
 	server.use(restify.queryParser());
 	 
 	var router = new Router(server, {
-		target : api
+		target : api,
+		log : log
 	});
 
 	router.post('/login', {
