@@ -8,7 +8,8 @@
         "uri": "node_notes",
         "pass": "123"
     },
-    "security": {
-        "password_salt": ""
-     }
+        "security": {
+        "password_salt": "",
+        "session_secret": "123"
+    }
 }
