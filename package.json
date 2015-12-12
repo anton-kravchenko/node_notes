@@ -5,7 +5,6 @@
   "main": "app.js",
   "dependencies": {
     "bunyan": "^1.5.1",
-    "crypto-js": "^3.1.5",
     "mysql": "^2.9.0",
     "nconf": "^0.8.2",
     "restify": "^4.0.3",
