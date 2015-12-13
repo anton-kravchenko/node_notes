@@ -67,8 +67,7 @@ init_api(nconf, log, function(error, api){
 	       username: router.String,
 	       password: router.String
 	   },
-	   call: [ api.login, 'username', 'password' ],
-	   session_required: false
+	   call: [ api.login, 'username', 'password' ]
 	});
 	
 	router.post('/register', {
@@ -77,8 +76,7 @@ init_api(nconf, log, function(error, api){
 	       email: router.String,
 	       password: router.String
 	   },
-	   call: [ api.register, 'username', 'email', 'password' ],
-	   session_required: false
+	   call: [ api.register, 'username', 'email', 'password' ]
 	});
 
 	server.listen(nconf.get('port'), function () {
