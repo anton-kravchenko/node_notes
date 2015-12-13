@@ -1,6 +1,7 @@
 var restify = require('restify');
 var nconf = require('nconf');
 var bunyan = require('bunyan');
+var session = require('express-session');
 
 var package_json = require('./package.json');
 
@@ -45,7 +46,17 @@ init_api(nconf, log, function(error, api){
 
 	server.use(restify.bodyParser());
 	server.use(restify.queryParser());
-	 
+	server.use(session({
+       	secret: nconf.get('security:session_secret'),
+       	name: 'user_session',
+       	rolling: true,
+       	resave: false,
+       	saveUninitialized: false,
+       	cookie: {
+       		maxAge: 12 * 24 * 60 * 60 * 1000
+       }
+   	})); 
+
 	var router = new Router(server, {
 		target : api,
 		log : log
@@ -56,8 +67,7 @@ init_api(nconf, log, function(error, api){
 	       username: router.String,
 	       password: router.String
 	   },
-	   call: [ api.login, 'username', 'password' ],
-	   session_required: false
+	   call: [ api.login, 'username', 'password' ]
 	});
 	
 	router.post('/register', {
@@ -66,8 +76,7 @@ init_api(nconf, log, function(error, api){
 	       email: router.String,
 	       password: router.String
 	   },
-	   call: [ api.register, 'username', 'email', 'password' ],
-	   session_required: false
+	   call: [ api.register, 'username', 'email', 'password' ]
 	});
 
 	server.listen(nconf.get('port'), function () {
