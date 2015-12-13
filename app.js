@@ -77,6 +77,14 @@ init_api(nconf, log, function (error, api) {
         call: [api.register, 'username', 'email', 'password']
     });
 
+    router.post('/add_note', {
+        parameters: {
+            note_text: router.String,
+            note_date: router.String
+        },
+        call: [ api.createNote, 'session:user_id', 'note_text', 'note_date' ]
+    });
+
     app.listen(nconf.get('port'), function () {
         console.log('Listening at %s', nconf.get('port'));
     });
