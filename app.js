@@ -91,6 +91,15 @@ init_api(nconf, log, function (error, api) {
         call: [ api.getAllNotes, 'session:user_id']
     });
 
+    router.post('/update_note', {
+        parameters: {
+            note_id : router.Integer,
+            note_text: router.String,
+            note_date: router.String
+        },
+        call: [ api.updateNote, 'session:user_id', 'note_id', 'note_text', 'note_date']
+    });
+
     app.listen(nconf.get('port'), function () {
         console.log('Listening at %s', nconf.get('port'));
     });
