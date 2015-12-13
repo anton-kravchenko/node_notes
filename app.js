@@ -100,6 +100,13 @@ init_api(nconf, log, function (error, api) {
         call: [ api.updateNote, 'session:user_id', 'note_id', 'note_text', 'note_date']
     });
 
+    router.delete('/delete_note', {
+        parameters: {
+            note_id : router.Integer,
+        },
+        call: [ api.deleteNote, 'session:user_id', 'note_id']
+    });
+
     app.listen(nconf.get('port'), function () {
         console.log('Listening at %s', nconf.get('port'));
     });
