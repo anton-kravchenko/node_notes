@@ -4,14 +4,44 @@
 	background-repeat: no-repeat;
 }
 
+button {
+    cursor: pointer;
+}
+
+textarea {
+    resize: none;
+}
+
 .notes_container {
     width: 500px;
     margin: 0 auto;
     margin-top: 100px;
 }
 
-button {
-    cursor: pointer;
+.update_note_controls {
+    display: none;
 }
 
+.new_note_text {
+    margin-bottom: 10px;
+}
 
+.updating_spinner {
+    display: none;
+}
+
+.three-quarters-loader:not(:required) {
+    -moz-animation: three-quarters-loader 1250ms infinite linear;
+    -webkit-animation: three-quarters-loader 1250ms infinite linear;
+    animation: three-quarters-loader 1250ms infinite linear;
+    border: 3px solid #38e;
+    border-right-color: transparent;
+    border-radius: 16px;
+    box-sizing: border-box;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    text-indent: -9999px;
+    width: 20px;
+    height: 20px;
+}

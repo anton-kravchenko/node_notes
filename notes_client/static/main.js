@@ -12,14 +12,21 @@ require.config({
       ],
       exports: 'Backbone'
     },
+    bootstrap: {
+      deps : [
+        'jquery'
+      ],
+      exports : 'bootstrap'
+    },
   },
   waitSeconds: 200,
   paths: {
-    text:           libsPath + 'text',
-    jquery:         libsPath + 'jquery',
-    underscore:     libsPath + 'underscore',
-    backbone:       libsPath + 'backbone',
-    
+    text:       libsPath + 'text',
+    jquery:     libsPath + 'jquery',
+    underscore: libsPath + 'underscore',
+    backbone:   libsPath + 'backbone',
+    bootstrap:  libsPath + 'bootstrap',
+
     templatesHandler : './templates/templatesHandler',
     config : './config/config',
     

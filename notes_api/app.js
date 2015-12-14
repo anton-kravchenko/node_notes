@@ -117,7 +117,7 @@ init_api(nconf, log, function (error, api) {
         call: [ api.getAllNotes, 'session:user_id']
     });
 
-    router.post('/update_note', {
+    router.post('/update_note/:note_id', {
         parameters: {
             note_id : router.Integer,
             note_text: router.String,
