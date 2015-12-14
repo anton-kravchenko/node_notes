@@ -114,9 +114,7 @@ API.prototype.register = function(username, email, password, callback) {
         console.log('Trying to register user');
 
         if (user) {
-            console.log('Found user:');
-            console.log(user);
-
+            console.log('Found user.');
             var error = errors.create('auth_incorrect_register_data', 'Username already exists', {
                 code: 403
             });
@@ -195,7 +193,7 @@ API.prototype.updateNote = function(user_id, note_id, note_text, note_date, call
     var self = this;
 
     _requireAuthorization(user_id, callback, function(){
-        self.model.Note.findOne({ where: { user_id: user_id, id : note_id }})
+        self.model.Note.findOne({ where: { id : note_id }})
             .then(function(note){
                 if(note){
                     note.set('note_text', note_text);

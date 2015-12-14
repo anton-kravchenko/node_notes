@@ -1,0 +1,14 @@
+<div class="note_container well">
+	<div class="note_controls">
+		<div class="note_edit"/>
+		<div class="note_delete"/>
+	</div>
+	<textarea class="note_text form-control" rows="3" placeholder="Enter your note"><%=  note_text %></textarea>
+	<div class="note_date text-right"><%=  note_date %></div>
+	<div class="update_note_controls">
+		<button type="button" class="btn btn-success update_note">Update <span class="glyphicon glyphicon-send"/></button>
+		<button type="button" class="btn btn-warning cancel_note">Cancel  <span class="glyphicon glyphicon-remove"/></button>
+		<button type="button" class="btn btn-danger delete_note">Delete  <span class="glyphicon glyphicon-trash"/></button>
+		<div class="updating_spinner"><div class="three-quarters-loader"></div></div>
+	</div>
+</div>

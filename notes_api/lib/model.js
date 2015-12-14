@@ -55,7 +55,7 @@ module.exports = function(nconf, log, callback){
 	model.Note = sequelize.define('note',
 	{
 		note_text: Sequelize.STRING,
-		note_date: Sequelize.DATE,
+		note_date: Sequelize.STRING,
         user_id : Sequelize.INTEGER
 	},
     {

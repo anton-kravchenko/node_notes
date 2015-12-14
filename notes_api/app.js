@@ -3,6 +3,7 @@ var session = require('express-session');
 var bodyParser = require('body-parser');
 var bunyan = require('bunyan');
 var nconf = require('nconf');
+var cors = require('express-cors')
 
 var package_json = require('./package.json');
 
@@ -55,6 +56,31 @@ init_api(nconf, log, function (error, api) {
         }
     }));
 
+    app.use(cors({
+        allowedOrigins: [
+            nconf.get('frontend:host'), 'http://localhost:3110'
+        ]
+    }));
+
+    app.use(function (req, res, next) {
+
+        // Website you wish to allow to connect
+        res.setHeader('Access-Control-Allow-Origin', nconf.get('frontend:host'));
+
+        // Request methods you wish to allow
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+        // Request headers you wish to allow
+        res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+        // Set to true if you need the website to include cookies in the requests sent
+        // to the API (e.g. in case you use sessions)
+        res.setHeader('Access-Control-Allow-Credentials', true);
+
+        // Pass to next layer of middleware
+        next();
+    })
+    
     var router = new Router(app, {
         target: api,
         log: log
@@ -91,7 +117,7 @@ init_api(nconf, log, function (error, api) {
         call: [ api.getAllNotes, 'session:user_id']
     });
 
-    router.post('/update_note', {
+    router.post('/update_note/:note_id', {
         parameters: {
             note_id : router.Integer,
             note_text: router.String,
@@ -100,7 +126,7 @@ init_api(nconf, log, function (error, api) {
         call: [ api.updateNote, 'session:user_id', 'note_id', 'note_text', 'note_date']
     });
 
-    router.delete('/delete_note', {
+    router.delete('/delete_note/:note_id', {
         parameters: {
             note_id : router.Integer,
         },

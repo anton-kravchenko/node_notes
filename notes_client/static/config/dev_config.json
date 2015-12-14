@@ -1,0 +1,5 @@
+{
+	"frontEndHost" : "http://localhost:3333/",
+	"entryPoint" : "http://localhost:3110",
+	"max_note_length" : "255"
+}

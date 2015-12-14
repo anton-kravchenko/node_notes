@@ -8,8 +8,12 @@
         "uri": "node_notes",
         "pass": "123"
     },
-        "security": {
+    "security": {
         "password_salt": "",
         "session_secret": "123"
+    },
+    "frontend" : {
+        "host" : "http://localhost:3333"
     }
+
 }
