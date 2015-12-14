@@ -3,7 +3,7 @@ define([
 	'underscore',
 	'backbone',
     'templatesHandler',
-    'API',
+    'API'
 ], function ($, _, Backbone, TemplateHandler, API) {
 
     var LandingScreen = Backbone.View.extend({
@@ -17,15 +17,34 @@ define([
         noteTemplate : TemplateHandler.note_template,
 
 		events: {
-            'click .submit_note': 'submitNote',
+            'click .submit_new_note': 'submitNote',
+            'click .cancel_new_note': 'cancelNewNote'
 		},
         
-		
+		maxNoteLength :  255,
+
 		initialize: function () {
 
 		},
         showAddNoteForm: function(){
+            var self = this;
             $('.notes_container').append(TemplateHandler.new_note_template());
+            $('.new_note_text').on('input', function(){
+                self.handleInputIndicator($(this));
+                // self.handleInputIndicator.call(self, $(this));
+            });
+        },
+        handleInputIndicator: function(input_el){
+            var messageLenght = $(input_el).val().length;
+            var indicatorWidth =  messageLenght / this.maxNoteLength * 100
+
+            $(input_el).parent().find('.message_length').text(messageLenght);
+
+            $(input_el).parent().find('.message_length_indicator').animate({
+                width : indicatorWidth + '%'
+                }, {
+                duration: 50,
+            });
         },
         fillNotes: function(notes){
             var self = this;
@@ -96,6 +115,10 @@ define([
                     date.getMonth()    + '.' +
                     date.getFullYear();
         },
+        cancelNewNote: function(){
+            $('.new_note_text').val('');
+            this.handleInputIndicator($('.new_note_text'));
+        },
         submitNote : function(){
             var self = this;
             var note_text = $('.new_note_text').val();
@@ -108,6 +131,7 @@ define([
             API.createNote(note_data, function(response){
                  self.fillNotes(new Array(response));
                  $('.new_note_text').val('');
+                 self.handleInputIndicator($('.new_note_text'));
             }, function(error){ 
                 consoel.log(error);
             })

@@ -22,13 +22,16 @@ textarea {
     display: none;
 }
 
-.new_note_text {
-    margin-bottom: 10px;
-}
-
 .updating_spinner {
     display: none;
 }
+
+.message_length_indicator {
+    width: 0;
+    height: 5px;
+    background: rebeccapurple;
+}
+
 
 .three-quarters-loader:not(:required) {
     -moz-animation: three-quarters-loader 1250ms infinite linear;

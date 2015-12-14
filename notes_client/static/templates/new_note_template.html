@@ -1,7 +1,12 @@
 <div class="new_note well">
-	<textarea class="form-control new_note_text" rows="5" placeholder="Enter your note"></textarea>
+	<textarea class="form-control new_note_text" rows="5" maxlength="255" placeholder="Enter your note"></textarea>
+	<div class="message_length_container">
+		<div class="message_length_indicator"/>
+		<span class="message_length">0</span>
+		<span class="message_length_label"> characters</span>
+	</div>
 	<div class="submit_note_controls">
-		<button type="button" class="btn btn-success submit_note">Submit <span class="glyphicon glyphicon-send"/></button>
-		<button type="button" class="btn btn-danger cancel_note">Cancel  <span class="glyphicon glyphicon-remove"/></button>
+		<button type="button" class="btn btn-success submit_new_note">Submit <span class="glyphicon glyphicon-send"/></button>
+		<button type="button" class="btn btn-danger cancel_new_note">Cancel  <span class="glyphicon glyphicon-remove"/></button>
 	</div>
 </div>
