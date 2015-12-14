@@ -126,7 +126,7 @@ init_api(nconf, log, function (error, api) {
         call: [ api.updateNote, 'session:user_id', 'note_id', 'note_text', 'note_date']
     });
 
-    router.delete('/delete_note', {
+    router.delete('/delete_note/:note_id', {
         parameters: {
             note_id : router.Integer,
         },

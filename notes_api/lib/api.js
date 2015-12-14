@@ -193,7 +193,6 @@ API.prototype.updateNote = function(user_id, note_id, note_text, note_date, call
     var self = this;
 
     _requireAuthorization(user_id, callback, function(){
-        console.log('userID ', userID, ' noteID ', note_id);
         self.model.Note.findOne({ where: { id : note_id }})
             .then(function(note){
                 if(note){
