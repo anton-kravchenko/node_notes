@@ -22,8 +22,11 @@ require.config({
     
     templatesHandler : './templates/templatesHandler',
     config : './config/config',
+    
     appView : './js/views/app',
     landingView : './js/views/landingView',
+    notesView : './js/views/notesView',
+
     API : './js/api/API',
     router: './js/router/router',
   
