@@ -3,7 +3,7 @@ define([
 	'underscore',
 	'backbone',
 	'templatesHandler'
-], function ($, _, Backbone, LoadingSpinner, TemplatesHandler) {
+], function ($, _, Backbone, TemplatesHandler) {
 
 	var AppView = Backbone.View.extend({
 

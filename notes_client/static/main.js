@@ -23,7 +23,7 @@ require.config({
     templatesHandler : './templates/templatesHandler',
     config : './config/config',
     appView : './js/views/app',
-    landingScreen : './js/views/landingScreen',
+    landingView : './js/views/landingView',
     API : './js/api/API',
     router: './js/router/router',
   

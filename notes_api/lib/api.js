@@ -114,9 +114,7 @@ API.prototype.register = function(username, email, password, callback) {
         console.log('Trying to register user');
 
         if (user) {
-            console.log('Found user:');
-            console.log(user);
-
+            console.log('Found user.');
             var error = errors.create('auth_incorrect_register_data', 'Username already exists', {
                 code: 403
             });

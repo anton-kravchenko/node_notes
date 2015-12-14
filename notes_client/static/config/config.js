@@ -1,4 +1,4 @@
-define([], function(){
+define(['jquery'], function($){
 
 	var config = {};
 
@@ -7,20 +7,23 @@ define([], function(){
 		var url = $(location).attr('href');
         
 		if(-1 != url.indexOf('localhost')){
-			configPath = './js/config/dev_config.json';	
+			configPath = './config/dev_config.json';	
 		} else {
-			configPath = './js/config/prod_config.json';	
+			configPath = './config/prod_config.json';	
 		}
-
+		    
 		$.ajax({
-		  url: configPath,
-		  async: false,
-		  dataType: 'json',
-		  success: function(data){
-				for( i in data){
-					config[i] = data[i];
-				}
-				callback();
+		 	url: configPath,
+		 	async: false,
+		 	dataType: 'json',
+		 	complete: function(response){
+		 		var data = JSON.parse(response.responseText);
+		 		if(data){
+					for( i in data){
+						config[i] = data[i];
+					}
+					callback();
+		 		}
 			}
 		});
 	}

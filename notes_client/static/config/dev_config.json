@@ -1,5 +1,4 @@
 {
 	"frontEndHost" : "http://localhost:3333/",
-	"entryPoint" : "http://localhost:3110/api/",
-	"apiVersion" : "1",
+	"entryPoint" : "http://localhost:3110"
 }

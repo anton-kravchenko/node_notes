@@ -20,7 +20,7 @@ define([
 			this.destroyCurrentView();
 
 			var self = this;
-			require(['landingScreen'], function(View){
+			require(['landingView'], function(View){
 				self.currentView = new View();
 				self.currentView.render('index');
 			});
