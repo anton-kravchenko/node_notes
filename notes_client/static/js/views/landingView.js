@@ -18,8 +18,10 @@ define([
 
 		signUpTemplate : TemplateHandler.sign_up_template,
 
+        signInUpButtons : TemplateHandler.sign_in_up_buttons,
+        
 		events: {
-            'click .grainbit_logo': 'showIndex',
+            'click .node_notes_logo': 'showIndex',
 			'click .login_button': 'checkPassword',
 			'click .signInButton': 'showSignInForm',
 			'click .signUpButton': 'showSignUpForm',
@@ -208,6 +210,9 @@ define([
 
 			$('.signInUpContainer').html(this.signInTemplate());
 		},
+        showIndex: function(){
+            $('.signInUpContainer').html(this.signInUpButtons());
+        },
 		initialize: function () {
 		},
 		render: function (page) {
@@ -215,7 +220,9 @@ define([
             
             $(this.el).html(this.template());
             
-			if (page == 'signIn'){
+            if ('index' == page){
+                this.showIndex();
+            } else if ('signIn' == page){
 				this.showSignInForm();
             } else {
 				this.showSignUpForm();				

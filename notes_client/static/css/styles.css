@@ -12,6 +12,40 @@ textarea {
     resize: none;
 }
 
+.landing_page_container {
+    position: absolute;
+    width: 300px;
+    height: 320px;
+    top: 50%;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: -165px;
+}
+
+.note_notes_label {
+    text-align: center;
+    font-size: 21px;
+    margin-bottom: 5px;
+}
+
+.node_notes_logo {
+    font-size: 51px;
+    color: rgb(226, 117, 49);
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.signInButton,
+.signUpButton {
+    width: 49%;
+}
+button#logIN,
+button#landing_register {
+    width: 100%;
+}
+
 .notes_container {
     width: 500px;
     margin: 0 auto;
