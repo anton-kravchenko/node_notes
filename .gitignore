@@ -1,0 +1,6 @@
+notes_api/node_modules
+notes_client/node_modules
+*.log
+*.txt
+.idea
+*.iml

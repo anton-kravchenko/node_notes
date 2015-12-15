@@ -1,0 +1,19 @@
+{
+    "port": 3110,
+    "log": {
+        "level": "debug",
+        "path": "./node_notes-log.log"
+    },
+    "database": {
+        "uri": "node_notes",
+        "pass": "123"
+    },
+    "security": {
+        "password_salt": "",
+        "session_secret": "123"
+    },
+    "frontend" : {
+        "host" : "http://localhost:3333"
+    }
+
+}

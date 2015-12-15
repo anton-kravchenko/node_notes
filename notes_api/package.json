@@ -1,0 +1,29 @@
+{
+  "name": "node_notes",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "bunyan": "^1.5.1",
+    "express-session": "^1.12.1",
+    "mysql": "^2.9.0",
+    "nconf": "^0.8.2",
+    "sequelize": "^3.14.2",
+    "underscore": "^1.8.3",
+    "validator": "^4.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anton-kravchenko/node_notes.git"
+  },
+  "author": "Anto Kravchenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anton-kravchenko/node_notes/issues"
+  },
+  "homepage": "https://github.com/anton-kravchenko/node_notes#readme"
+}
